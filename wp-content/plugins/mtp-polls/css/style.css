@@ -1,0 +1,64 @@
+/* PLUGIN ENQUETE */
+.panel{
+border:0px;
+padding:10px;
+padding-top:0px;
+}
+.panel .panel-heading{
+	border-bottom:0px;
+	margin-bottom:10px;
+}
+.panel h3{
+	margin-top:0;
+	font-size:20px;
+}
+.panel #btnVotar{
+	margin-top:10px;
+	margin-right:10px;
+}
+.panel .retornoEnquete{
+	display:none;
+	font-size:10px;
+	margin-top:10px;
+}
+.panel .list-group .list-group-item{
+	margin-bottom:0px;
+	margin-top:5px;
+	border-radius:30px;
+	overflow:hidden;
+	color:#fff;
+	font-weight:500;
+	vertical-align:middle;
+	padding:5px;
+	background:#6699CC
+}
+.list-group-item input[type=radio]{
+	margin-right:10px;
+	background:#FFF;
+	width:15px;
+	height:15px;
+}
+.list-group-item .badge{
+	background:#fff;
+	color:#333;
+	font-size:10px;
+	margin-top:8px;
+}
+.list-group-item  .barra{
+	height:10px;
+	background:#ffde00;
+	position:absolute;
+	bottom:-1px;
+	left:-5px;'
+}
+.list-group-item .opcao{
+	z-index:99;
+	margin-top:-2px;
+	margin-bottom:5px;
+}
+.list-group-item  .barra  .porcentagem{
+	font-size:7px !important;
+	color:#222 !important;
+	font-weight:bold !important;
+	padding-right:5px;
+}

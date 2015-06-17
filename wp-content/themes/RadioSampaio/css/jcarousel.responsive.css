@@ -1,0 +1,98 @@
+.jcarousel-wrapper-1, .jcarousel-wrapper-2  {
+    position: relative;
+}
+
+/*FIM SLIDE 1*/
+
+.jcarousel-1 {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.jcarousel-1 ul {
+    width: 2000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	padding-right:10px;
+}
+
+.jcarousel-1 li {
+   	max-width: 281px;
+	height:328px !important;
+	min-height:290px !important;
+	max-height:328px !important;
+    float: left;
+    padding:4px;
+	background:#ffffff;
+	margin-right:5px;
+	
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+	
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.jcarousel-1 img {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+}
+
+/*FIM SLIDE 1*/
+
+
+
+
+/** Carousel **/
+
+.jcarousel-2 {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.jcarousel-2 ul {
+    width: 2000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	padding-right:10px;
+}
+
+.jcarousel-2 li {
+   	max-width: 281px;
+	min-height:100px;
+	max-height:150px;
+	height:140px;
+    float: left;
+	overflow:hidden;
+    padding:4px;
+	background:#ffffff;
+	margin-right:5px;
+	
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+	
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.jcarousel-2 img {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+}
+

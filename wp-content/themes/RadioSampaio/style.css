@@ -1,0 +1,489 @@
+/*
+Theme Name: Rádio Sampaio 92,5 FM & 870 AM
+Description: Tema desenvolvido por Agência Interactive Monkey
+Author: Interactive Monkey
+Author URI: http://www.interactivemokey.com.br
+Version: 1.0
+*/
+
+@charset "utf-8";
+/* CSS Document */
+
+/* Thema Site */
+body{
+	font-family:'Open Sans';
+	background:#fff;
+	 position: relative;
+}
+.full-container{
+	padding:0;
+	margin:0;
+}
+.no-padding{
+	padding:0;
+}
+.barra-topo{
+	padding:5px 10px;
+	/*margin-top:60px;*/
+}
+.barra-header{
+	height:auto;
+	min-height:150px;
+	padding:20px 5px;
+	color:#ffffff;
+}
+.barra-header h1{
+	padding-top:25px;
+	font-size:50px;
+	
+}
+.barra-header .search{
+	margin-top:20px;
+}
+.menu{
+	margin-top:20px;
+	border-top: 2px dotted #ffffff;
+	background:none;
+	padding:0px;
+}
+.menu nav{
+	background:none;
+	margin-top:18px;
+}
+.navbar-default{
+	border:0px !important;
+	color:#ffffff;
+	text-transform:uppercase;
+	margin-bottom:0;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#ffffff;
+	padding-right:20px;
+	padding-left:0;
+}
+.navbar-default .navbar-nav > li > a:hover{
+	color:#ffde00;
+}
+.bolha{
+	position:absolute;
+	left:0;
+	top:-35px;
+	z-index:9999;
+}
+#Slide{
+	height:330px;
+}
+.swiper-container {
+	width: 100%;
+    height: 100%;
+ }
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-detail{
+	background:rgba(0,0,0,0.7);
+	position:absolute;
+	bottom:0px;
+	left:0;
+	width:100%;
+	height:90px;
+	padding-bottom:25px;
+	padding-left:15px;
+	text-align:left;
+}
+.swiper-detail h1 {
+	padding-top:0;
+	margin-top:0;
+	margin-bottom:0;
+}
+.swiper-detail p a{
+	padding-top:0;
+	color:#ccc;
+	font-size:14px;
+	text-decoration:none;
+}
+.swiper-detail h1 a{
+	font-size:18px;
+	text-decoration:none;
+	color:#fff;
+	margin-bottom:0px;
+}
+.swiper-detail p a:hover,.swiper-detail h1 a:hover{
+	text-decoration:underline;
+}
+
+.bolha-jornalismo{
+	position:absolute;
+	left:0;
+	top:-25px;
+	z-index:9999;
+}
+.jornalismo{
+	background:#ffde00;
+	position:relative;
+	height:30px;
+	padding-top:4px;
+	left:-30px;	
+	top:-13px;
+	font-size:16px;
+	text-align:center;
+	font-weight:700;
+	border-radius:20px;
+}
+.news .miniatura-news, .sidebar-jornalismo .miniatura-news{
+	width:80px;
+	height:60px;
+}
+.mini-a{
+	font-size:12px !important;
+	color:#999 !important;
+}
+.news h2, .sidebar-jornalismo h2 {
+	padding-top:0;
+	margin-top:0;
+	margin-bottom:5px;
+	font-size:15px;
+}
+.news a, .sidebar-jornalismo a{
+	font-size:14px;
+	color:#fff;
+	margin-bottom:0px;
+	padding-top:0;
+	color:#b2b2b2;
+	font-size:14px;
+	text-decoration:none;
+	word-wrap:break-word;
+}
+.news a:hover{
+	text-decoration:underline;
+}
+.espacamento{
+	height:19px;
+}
+
+.blogs{
+	margin:50px 0;
+	height:auto;
+	min-height:200px;
+}
+.blog-conteudo{
+	background:#ebebeb;
+	height:130px;
+}
+.blogs h1{
+	font-size:14px;
+	color:#000;
+	margin-top:10px;
+}
+.blogs a{
+	font-size:12px;	
+	color:#333;
+}
+
+.barra-meio{
+	/*background:#f4bd00;*/
+	background:#ffde00;
+	min-height:354px;
+	height:auto;
+	max-height:800px;
+	position:relative;
+	height:auto;
+	margin:30px 0;
+}
+
+.barra-meio .barra-left{
+}
+.evento-principal{
+	overflow:hidden;
+	min-height:300px;
+	max-height:472px;
+	height:auto;
+}
+.barra-meio .barra-right{
+	min-height:362px;
+	height:100% !important;
+}
+.barra-meio .barra-right .destaque-eventos{
+	overflow:hidden;
+}
+.barra-meio .barra-right .destaque-eventos a img{
+	max-height:315px;
+	max-width:315px;
+	-webkit-border:0px;
+	-moz-border:0px;
+	border:0px;
+}
+.mais-eventos{
+	height:auto !important;
+	min-height:150px;
+	margin-bottom:15px;
+	display:table;
+	width:100%;
+}
+.plus{
+	width:150px;
+	height:150px;
+	color:#fff;
+	background:#FF9900;
+	font-size:25px;
+	font-weight:700;
+	text-decoration:none;
+	position:absolute;
+	top:-80px;
+	right:-80px;
+	
+	transform:rotate(45deg);
+}
+.plus:hover{
+	text-decoration:none;
+	color:#fff;
+	background:#F60;
+	transition:0.3s;
+}
+.plus i{
+	transform:rotate(-45deg);
+	position:absolute;
+	transition:0.3s;
+	top:100px;
+	left:60px;
+}
+.plus:hover i{
+	transform:rotate(-45deg);
+	transition:0.3s;
+	font-size:40px;
+	top:90px;
+	left:55px;
+	opacity:0.5;
+}
+.pedido{
+	background:#ffde00;
+	position:relative;
+	height:30px;
+	padding-top:4px;
+	margin-bottom:20px;
+	left:0px;	
+	font-size:16px;
+	text-align:center;
+	font-weight:700;
+	border-radius:20px;
+}
+.bolha-pedido{
+	position:absolute;
+	left:0;
+	top:-10px;
+	z-index:99999;
+}
+.barra-pedidos{
+	margin:50px 0 0 30px;
+}
+.barra-pedidos .pub{
+	margin-bottom:10px;
+	width:100%;
+}
+
+.barra-pedidos .foto-pedido-musical{
+	width:70px;
+	height:70px;
+	margin-left:20px;
+	border:3px solid #ffde00;
+	box-shadow:2px 2px 2px rgba(0,0,0,0.4);
+}
+.barra-pedidos h5{
+	font-weight:700;
+}
+.barra-pedidos p{
+	font-size:11px;
+	text-align:justify;
+}
+
+
+.barra-social img{
+	-webkit-border:0px;
+	-moz-border:0px;
+	-ms-border:0px;
+	-o-border:0px;
+	border:0px;
+	margin-right:4px;
+	
+	-webkit-transition:0.2s;
+	-moz-transition:0.2s;
+	-ms-transition:0.2s;
+	-o-transition:0.2s;
+	transition:0.2s;
+	
+}
+.barra-social img:hover{
+	-webkit-transition:0.8s;
+	-moz-transition:0.8s;
+	-ms-transition:0.8s;
+	-o-transition:0.8s;
+	transition:0.8s;
+	
+	-webkit-transform:rotate(360deg);
+	-moz-transform:rotate(360deg);
+	-ms-transform:rotate(360deg);
+	-o-transform:rotate(360deg);
+	transform:rotate(360deg);
+}
+.sidebar-jornalismo{
+	margin-top:40px;
+}
+
+.footer{
+	height:auto;
+	min-height:50px;
+	padding:50px 0;
+	margin-top:80px;
+	color:#ffffff;
+}
+.footer h1, h6{
+	text-align:center;
+	margin-top:0;
+}
+
+.AgenciaInteractiveMonkey{
+	background:#ffde00;
+	text-align:center;
+	font-weight:700;
+	font-size:12px;
+}
+.AgenciaInteractiveMonkey h6{
+	padding-top:9px;
+}
+
+.AgenciaInteractiveMonkey a{
+	color:#000;
+}
+
+
+/* COMENTARIOS  */
+
+#comments h3 {font: bold 24px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393;padding-bottom:5px;}
+#comments hr {margin: 0 0 16px 0}
+.commentlist li {list-style-type: none; margin-bottom:15px; padding:8px; background:#f5f5f5; width:550px; max-width:550px} 
+.comment-body {position: relative;}
+.comment-body .commentmetadata a {position: absolute; top:0; right:0; font: 12px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393; text-decoration:none; }
+#comments .commentlist li .comment-body p {font: 12px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#000; margin:5px 0 0 70px;}
+.comment-awaiting-moderation {margin-left:70px; color:#fe1010}
+.comment-author {position: relative}
+.comment-author img {margin:0 5px 5px 0}
+.fn {position: absolute; top:0;} 
+.fn a {font: bold 13px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#000; text-decoration:none;} 
+.fn a:hover {color:#000; text-decoration:underline;}
+.says {position: absolute; top:25px; font: 13px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#999; }
+.reply {text-align:right;}
+.reply a {font: 13px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#999; }
+.comment-edit-link {margin-top:30px}
+
+.coment-textarea{
+	width:450px;
+	max-width:400px;
+	min-width:350px;
+	height:200px;
+	max-height:200px;
+	min-height:150px;
+	padding: 25px;
+	font-size:14px;
+	color:#333;
+	background:#ebebeb;
+	border:1px solid #ccc;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;	
+}
+.coment-tit{
+	font-size:15px;
+	color:#666;
+	width:100%;
+	padding-left:10px;
+	margin-bottom:0px;
+	margin-top:15px;
+}
+.coment-input{
+	width:280px;
+	max-width:280px;
+	padding: 10px 25px;
+	font-size:14px;
+	color:#333;
+	background:#efefef;
+	border:1px solid #ccc;
+	border-radius:20px;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	-ms-border-radius:20px;
+	-o-border-radius:20px;	
+}
+
+
+
+/* RESPOSTAS */
+#respond {margin-top:10px}
+#respond form label {
+	width:450px; 
+	display:table; 
+	margin: 15px 0 0 0;
+	padding:0;
+	font-weight:normal}
+#respond form input{
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	background:#ebebeb;
+	border:0px;
+	padding:12px;
+	color:#333;
+}
+#respond form textarea {
+	width: 400px;
+	background:#ebebeb; 
+	height: 200px; 
+	max-height:200px; 
+	padding: 15px;
+	}
+
+#respond form .commentsubmit {width:100px; height:30px; color: #000; margin:50px 0}
+#respond a {font: 14px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393; text-decoration:none;} 
+#respond form a {font: 14px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393; text-decoration:none;}
+.children {margin:20px 0 15px 60px;width:470px;max-width:470px;}
+.children li {margin-bottom:15px; padding:8px; border:1px solid #ccc; background:#efefef;max-width:470px;}
+
+
+
+
+@media only screen and (min-width: 960px) and (max-width: 1200px) {
+	
+	
+}
+@media only screen and (min-width: 850px) and (max-width: 959px) {
+	
+	
+}
+@media only screen and (min-width: 768px) and (max-width: 849px) {
+	
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+}
+
+@media only screen and (max-width: 479px) {
+	
+}
