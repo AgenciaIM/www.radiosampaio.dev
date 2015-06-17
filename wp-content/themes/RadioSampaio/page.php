@@ -1,4 +1,12 @@
-<?php get_header();?>
+<?php
+/**
+ * Template Name: Pagina padrão
+ *
+ * @package interactivemonkey
+ * @subpackage radio sampaio
+ * @since RadioSampaio 1.0
+ */
+ get_header();?>
 <div class="container-fluid">
     <div class="container single">
     	<div class="col-lg-7">
