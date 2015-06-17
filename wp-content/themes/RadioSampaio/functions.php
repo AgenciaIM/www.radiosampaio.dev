@@ -1,4 +1,6 @@
 <?php
+/* adicionar titulo de tags */
+add_theme_support( 'title-tag' );
 
 
 /* REMOVER VERSÃO DO BOX AGORA */
@@ -115,6 +117,59 @@ function my_login_logo_url_title() {
 }
 
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+
+///////////////////////////////////
+/// LIMITAR RESUMO ////////
+//////////////////////////////////////
+
+function wp_limit_post($max_char, $more_link_text = '[...]',$notagp = false, $stripteaser = 0, $more_file = '') {
+    $content = get_the_content($more_link_text, $stripteaser, $more_file);
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    $content = strip_tags($content);
+ 
+   if (strlen($_GET['p']) > 0) {
+      if($notagp) {
+      echo substr($content,0,$max_char);
+      }
+      else {
+      echo '<p>';
+      echo substr($content,0,$max_char);
+      echo "</p>";
+      }
+   }
+   else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
+        $content = substr($content, 0, $espacio);
+        $content = $content;
+        if($notagp) {
+        echo substr($content,0,$max_char);
+        echo $more_link_text;
+        }
+        else {
+        echo '<p>';
+        echo substr($content,0,$max_char);
+        echo $more_link_text;
+        echo "</p>";
+        }
+   }
+   else {
+      if($notagp) {
+      echo substr($content,0,$max_char);
+      }
+      else {
+      echo '<p>';
+      echo substr($content,0,$max_char);
+      echo "</p>";
+      }
+   }
+}
+
+
+
+
+
+
 
 
 ///////////////////////////
