@@ -1,22 +1,17 @@
-<?php
-/**
- * Template Name: Pagina padrão
- *
- * @package interactivemonkey
- * @subpackage radio sampaio
- * @since RadioSampaio 1.0
- */
- get_header();?>
-<div class="container-fluid">
-    <div class="container single">
-    	<div class="col-lg-7">
-        	CONTEUDO DA PAGINA
-             
-             
+<?php get_header();?>
+<div class="container">
+    <div class="row single">
+    	<div class="col-lg-7">        	
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+               <h1 style="padding-bottom:20px;"><?php the_title();?></h1>
+               <p><?php the_content();?></p>
+            <?php endwhile; else : ?>
+	        <p><?php _e( 'Desculpe, nenhum texto escrito nessa pagina.' ); ?></p>
+            <?php endif; ?>
         </div>
         
         <div class="col-lg-5 sidebar-jornalismo">
-			<div class="col-lg-2">
+	    <div class="col-lg-2">
             	<img class="bolha-jornalismo" src="<?php echo get_bloginfo('template_url'); ?>/img/bolha-vazia.png" />
             </div>
             <div class="col-lg-10 jornalismo">Jornalismo</div>
@@ -66,7 +61,7 @@
             	<h2>Notícia de 1 Noticia de 1</h2>
             	<a href="#">Detalhe da Notícia d Detalhe da Notícia d Det da Notícia dtalhe datícia...</a>
             </div>
-		</div>
+	</div>
     </div>
     
     
