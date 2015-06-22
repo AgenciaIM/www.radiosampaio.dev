@@ -4,7 +4,7 @@
 	<div class="container" style="margin-top:50px;height:300px;position:relative">
     <div class="col-lg-10 col-lg-offset-1">
     	<img class="bolha" src="<?php echo get_bloginfo('template_url'); ?>/img/bolha.png" />
-    	<div id="Slide" class="col-lg-7 no-padding">
+    	<div id="Slide" class="col-lg-5 no-padding">
            <!-- Swiper -->
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -33,13 +33,13 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </div>
-        <div class="col-lg-5 news">
+        <div class="col-lg-4 news full-container">
         	<div class="col-lg-2">
             	<img class="bolha-jornalismo" src="<?php echo get_bloginfo('template_url'); ?>/img/bolha-vazia.png" />
             </div>
             <div class="col-lg-10 jornalismo">Jornalismo</div>
             <!-- LISTAGEM NEWS -->
-            <div class="col-lg-1">&nbsp;</div>
+            
             <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
 
             </div>
@@ -50,7 +50,7 @@
             
             <div class="col-lg-12 espacamento">&nbsp;</div>
             
-            <div class="col-lg-1">&nbsp;</div>            
+                      
             <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
 
             </div>
@@ -61,7 +61,7 @@
             
             <div class="col-lg-12 espacamento">&nbsp;</div>
             
-            <div class="col-lg-1">&nbsp;</div>                        
+                                    
             <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
 
             </div>
@@ -70,18 +70,12 @@
             	<a href="#" class="mini-a">Detalhe da Notícia d Detalhe da Notícia d Det da...</a>
             </div>
             
-            <div class="col-lg-12 espacamento">&nbsp;</div>
             
-            <div class="col-lg-1">&nbsp;</div>                        
-            <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8">
-            	<h2>Notícia de 1 Noticia de 1</h2>
-            	<a href="#" class="mini-a">Detalhe da Notícia d Detalhe da Notícia d Det da...</a>
-            </div>
-            
-        </div>    
+        </div>   
+			
+			<div class="col-lg-2 col-md-2 full-container">
+				<img class="img-resposive" src="<?php echo get_bloginfo('template_url'); ?>/img/promocoes.jpg" style="width:100%" />
+			</div>
         <!-- LISTAGEM NEWS -->
 	</div><!-- container -->
   </div>  
