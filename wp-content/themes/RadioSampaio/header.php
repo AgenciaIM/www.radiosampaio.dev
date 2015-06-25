@@ -9,7 +9,7 @@
   <meta name="description" content="Rádio Sampaio 92,5 FM & 870 AM">
   <meta name="author" content="Agência Interactive MOnkey">
   <meta name="robots" content="index,follow">
-    <title>Rádio Sampaio 92,5 FM & 870 AM</title>
+    <title>Rádio Sampaio 92,5 FM & 870 AM </title>
     
     <link rel="icon" href="<?php echo get_bloginfo('template_url'); ?>/img/icon.png" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
