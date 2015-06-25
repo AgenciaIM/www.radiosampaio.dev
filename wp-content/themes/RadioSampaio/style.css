@@ -198,6 +198,20 @@ body{
 	color:#333;
 }
 
+.blogs .popover .popover-title { 
+	background: #17066A; 
+	color:#ffffff;
+	width:200px !important;
+	font-size:12px;
+	font-weight:bold;	
+}
+.blogs .popover .popover-content{ 
+	font-size:11px;
+	color:#333;
+}
+.blogs .bloguista{
+	padding:0px !important;
+}
 .barra-meio{
 	/*background:#f4bd00;*/
 	background:#ffde00;
@@ -414,6 +428,7 @@ body{
   -o-transition:0.3s;
   transition:0.3s;
 }
+
 .list-group .list-group-item:hover a .oculta{
 	display:inline;
 	bottom:0px;

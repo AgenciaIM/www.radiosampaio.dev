@@ -25,6 +25,8 @@
 	 <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/js/masonry.min.js"></script>
 	 <script>
 		$(document).ready( function() {
+			$('.bloguista').popover({ trigger: "hover" });
+			
 			$('#pedidoMusical a').click(function (e) {
 				e.preventDefault()
 				$(this).tab('show')

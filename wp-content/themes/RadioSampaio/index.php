@@ -94,7 +94,9 @@
 											?>
 										  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
 												<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
-													<?php echo userphoto($author->ID) ; ?>
+													<a id="bloguista" class="btn bloguista" href="#" data-content="<?php the_author_meta('description'); ?>" data-placement="top" data-title="<?php echo esc_html( $author->display_name )?>" data-trigger="hover">
+														<?php echo userphoto($author->ID) ; ?>
+													</a>
 												</div>
 												<div class="col-lg-8 col-md-8 col-sm-8 col-xs-9 blog-conteudo">
 													<h1><?php echo $post->post_title; ?></h1>
@@ -168,7 +170,7 @@
 				
 				
 				<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="pedidos">
+				<div role="tabpanel" class="tab-pane fade in active" id="pedidos">
 						<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
 																	background-position:center center;background-size:cover;">
 
@@ -216,7 +218,7 @@
 					
 					
 					</div>
-					<div role="tabpanel" class="tab-pane" id="facaPedidos">Inserir Formulário de Pedido Musical</div>
+					<div role="tabpanel" class="tab-pane fade" id="facaPedidos">Inserir Formulário de Pedido Musical</div>
 			  </div>
 				
             
