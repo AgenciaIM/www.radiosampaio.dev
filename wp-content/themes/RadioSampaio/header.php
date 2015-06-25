@@ -1,4 +1,5 @@
-<?php global $DIR; $DIR = "http://www.radiosampaio.dev/wp-content/themes/RadioSampaio"; ?>
+<?php session_start(); ?>
+<?php global $DIR; $DIR = "http://www.radiosampaiofm.com.br/wp-content/themes/SaoDomingos"; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,18 +11,34 @@
   <meta name="robots" content="index,follow">
     <title>Rádio Sampaio 92,5 FM & 870 AM</title>
     
-    <link rel="icon" href="<?php echo $DIR; ?>/img/icon.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo get_bloginfo('template_url'); ?>/img/icon.png" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="<?php echo $DIR; ?>/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $DIR; ?>/css/swiper.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $DIR; ?>/style.css" />  
-    <link rel="stylesheet" type="text/css" href="<?php echo $DIR; ?>/css/style-metro.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); ?>/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); ?>/css/swiper.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); ?>/style.css" />  
+    <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); ?>/css/style-metro.css" />
 		
 	
 		
-    <script type="text/javascript" src="<?php echo $DIR; ?>/js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="<?php echo $DIR; ?>/js/modernizr.custom.28468.js"></script>
-	 <script type="text/javascript" src="<?php echo $DIR; ?>/js/freewall.js"></script>
+    <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
+	 <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/js/masonry.min.js"></script>
+	 <script>
+		$(document).ready( function() {
+			$('#pedidoMusical a').click(function (e) {
+				e.preventDefault()
+				$(this).tab('show')
+			});
+			
+			var $container = $('.grid-evento');
+			$container.imagesLoaded( function(){
+			  $container.masonry({
+				 itemSelector : '.grid-item',
+				 columnWidth: 125
+			  });
+			});
+		});
+	 </script>
     <?php wp_head();?>
 </head>
 
@@ -99,9 +116,9 @@
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
                     <div class="search">
                         <div class="input-group col-lg-10 col-md-10 col-sm-10 col-xs-12 pull-right">
-                            <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                            <input type="text" class="form-control input-md" placeholder="Buscar" />
                             <span class="input-group-btn">
-                                <button class="btn btn-warning btn-lg" type="button">
+                                <button class="btn btn-warning btn-lg src" type="button">
                                     <i class="glyphicon glyphicon-search"></i>
                                 </button>
                             </span>
