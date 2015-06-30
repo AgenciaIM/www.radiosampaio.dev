@@ -76,7 +76,61 @@ function wp_jpeg_quality() {
          return 80;
 }
 
-// Custom WordPress Login Logo
+////////////////////////////////
+// Registrar áreas de widgets //
+///////////////////////////////
+
+function theme_widgets_init() {
+ // Área 1
+ register_sidebar( array (
+ 'name' => 'Coluna direita',
+ 'id' => 'primary_widget_area',
+ 'before_widget' => '',
+ 'after_widget' => "",
+ 'before_title' => '<h4>',
+ 'after_title' => '</h4>',
+  ) );
+ 
+ // Área 2
+ register_sidebar( array (
+ 'name' => 'Secondary Widget Area',
+ 'id' => 'secondary_widget_area',
+ 'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+ 'after_widget' => "</li>",
+ 'before_title' => '<h3 class="widget-title">',
+ 'after_title' => '</h3>',
+  ) );
+} // end theme_widgets_init
+ 
+add_action( 'init', 'theme_widgets_init' );
+
+// INSERIR WIDGTES AUTOMATICOS NOS BOXS DE WIDGET //
+$preset_widgets = array (
+ 'primary_widget_area'  => array( 'pages', 'categories', 'archives' ),
+ 'secondary_widget_area'  => array( 'links', 'meta' )
+);
+if ( isset( $_GET['activated'] ) ) {
+ update_option( 'sidebars_widgets', $preset_widgets );
+}
+// update_option( 'sidebars_widgets', NULL );
+
+
+// Verificar widgets nas áreas de widgets
+function is_sidebar_active( $index ){
+  global $wp_registered_sidebars;
+ 
+  $widgetcolums = wp_get_sidebars_widgets();
+ 
+  if ($widgetcolums[$index]) return true;
+ 
+ return false;
+} // end is_sidebar_active
+
+
+//////////////////////////////////
+// Custom WordPress Login Logo //
+/////////////////////////////////
+
 function my_login_logo() { ?>
 <style type="text/css">
    body {
@@ -164,12 +218,6 @@ function wp_limit_post($max_char, $more_link_text = '[...]',$notagp = false, $st
       }
    }
 }
-
-
-
-
-
-
 
 
 ///////////////////////////
@@ -262,9 +310,41 @@ add_filter('screen_layout_columns', 'shapeSpace_screen_layout_columns');
 function shapeSpace_screen_layout_dashboard() { return 1; }
 add_filter('get_user_option_screen_layout_dashboard', 'shapeSpace_screen_layout_dashboard');
 
+// PUXAR O ARQUIVO CUSTOM POST TYPE //
+require('app/cpt.php');
+/////////////////////////////////////
 
 
-// Novidades Interactive MOnkey
+/*
+add_action( 'save_post', 'ewp_banner_save_post', 10, 2 );
+
+function ewp_banner_save_post( $banner_id, $banner ) {
+    $url= $_POST['ano_banner'];
+    // Verificar se os dados foram enviados, neste caso se a metabox existe, garantindo-nos que estamos a guardar valores da página de filmes.
+    if (! $url ) return;
+    // Fazer a saneação dos inputs e guardá-los
+
+   $verificar = wp_http_validation_url($url);
+    if ($verificar ==  true) {
+        update_post_meta($banner_id, '_url_banner', strip_tags($_POST['url_banner']));
+    } else{
+
+         echo '<p>Você precisa inserir http://</p>';
+    }
+
+    return true;
+
+}
+
+
+*/
+
+
+
+
+//////////////////////////////////
+// Novidades Interactive MOnkey //
+//////////////////////////////////
 
 add_action('wp_dashboard_setup', 'interactivemonkey_news_dashboard_widgets');
 
