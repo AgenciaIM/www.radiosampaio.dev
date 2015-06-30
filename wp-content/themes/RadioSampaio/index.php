@@ -1,30 +1,32 @@
 <?php get_header(); ?>
 
 <div class="container-fluid">
-	<div class="container" style="margin-top:50px;height:300px;position:relative">
+	<div class="container" style="margin-top:50px;min-height:150px;height:auto;position:relative">
     <div class="col-lg-10 col-lg-offset-1">
     	<img class="bolha" src="<?php echo get_bloginfo('template_url'); ?>/img/bolha.png" />
-    	<div id="Slide" class="col-lg-7 no-padding">
+    	<div id="Slide" class="col-lg-6 no-padding">
            <!-- Swiper -->
             <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-9.jpg');background-size:cover;background-position:center center;">
+                <div class="swiper-wrapper">					  
+						  
+							<?php query_posts('posts_per_page=7'); if (have_posts()) : while (have_posts()) : the_post(); ?>
+							
+							<?php
+							if ( has_post_thumbnail() ) {
+								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+								$img = $image[0];
+							} else {
+								$img = pega_imagem_post();
+							} ?>
+							
+							<div class="swiper-slide" style="background:url('<?php echo $img ?>');background-size:cover;background-position:center center;">
                     	<div class="swiper-detail">
-                        	<h1><a href="#">Notícia de Destaque 1 Noticia de Destaque 1</a></h1>
-                        	<p><a href="#">Detalhe da Notícia de Destaque 1 Detalhe da Noticia de Destaque 1</a></p>
+                        	<h1><a href="<?php the_permalink() ?>"><?php title_limite(100); ?></a></h1>
+                        	<p><a href="#<?php the_permalink(); ?>"><?php the_excerpt_im(47); ?></a></p>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-2.jpg');background-size:cover;background-position:center center;">
-                    	<div class="swiper-detail">
-                        	<h1><a href="#">Notícia de Destaque 1 Noticia de Destaque 1</a></h1>
-                        	<p><a href="#">Detalhe da Notícia de Destaque 1 Detalhe da Noticia de Destaque 1</a></p>
-                        </div>
-                    </div><div class="swiper-slide" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');background-size:cover;background-position:center center;">
-                    	<div class="swiper-detail">
-                        	<h1><a href="#">Notícia de Destaque 1 Noticia de Destaque 1</a></h1>
-                        	<p><a href="#">Detalhe da Notícia de Destaque 1 Detalhe da Noticia de Destaque 1</a></p>
-                        </div>
-                    </div>
+						  
+							<?php endwhile; endif; ?>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -33,55 +35,41 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </div>
-        <div class="col-lg-5 news">
+        <div class="col-lg-4 news full-container">
         	<div class="col-lg-2">
             	<img class="bolha-jornalismo" src="<?php echo get_bloginfo('template_url'); ?>/img/bolha-vazia.png" />
             </div>
             <div class="col-lg-10 jornalismo">Jornalismo</div>
             <!-- LISTAGEM NEWS -->
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
+            
+            <!--<div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
 
-            </div>
-            <div class="col-lg-8">
-            	<h2>Notícia de 1 Noticia de 1</h2>
-            	<a href="#" class="mini-a">Detalhe da Notícia d Detalhe da Notícia d Det da...</a>
-            </div>
+            </div>-->
             
-            <div class="col-lg-12 espacamento">&nbsp;</div>
-            
-            <div class="col-lg-1">&nbsp;</div>            
-            <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
+				<?php query_posts('posts_per_page=3'); if (have_posts()) : while (have_posts()) : the_post(); ?>
+							
+							<?php
+							if ( has_post_thumbnail() ) {
+								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+								$img = $image[0];
+							} else {
+								$img = pega_imagem_post();
+							} ?>
+							<div class="col-lg-3 miniatura-news" style="background:url('<?php echo $img ?>'); background-position:center center;background-size:cover;">
 
-            </div>
-            <div class="col-lg-8">
-            	<h2>Notícia de 1 Noticia de 1</h2>
-            	<a href="#" class="mini-a">Detalhe da Notícia d Detalhe da Notícia d Det da...</a>
-            </div>
-            
-            <div class="col-lg-12 espacamento">&nbsp;</div>
-            
-            <div class="col-lg-1">&nbsp;</div>                        
-            <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8">
-            	<h2>Notícia de 1 Noticia de 1</h2>
-            	<a href="#" class="mini-a">Detalhe da Notícia d Detalhe da Notícia d Det da...</a>
-            </div>
-            
-            <div class="col-lg-12 espacamento">&nbsp;</div>
-            
-            <div class="col-lg-1">&nbsp;</div>                        
-            <div class="col-lg-3 miniatura-news" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg'); background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8">
-            	<h2>Notícia de 1 Noticia de 1</h2>
-            	<a href="#" class="mini-a">Detalhe da Notícia d Detalhe da Notícia d Det da...</a>
-            </div>
-            
-        </div>    
+							</div>
+							<div class="col-lg-8">
+								<h2><?php title_limite(30) ?></h2>
+								<a href="<?php the_permalink()?>" class="mini-a"><?php the_excerpt_im(65); ?></a>
+							</div>
+						  
+						   <div class="col-lg-12 espacamento">&nbsp;</div>
+							<?php endwhile; endif; ?>
+        </div>   
+			
+			<div class="col-lg-2 col-md-2 full-container">
+				<img class="img-resposive" src="<?php echo get_bloginfo('template_url'); ?>/img/promocoes.jpg" style="width:100%" />
+			</div>
         <!-- LISTAGEM NEWS -->
 	</div><!-- container -->
   </div>  
@@ -94,42 +82,33 @@
     	    <img style="margin-left:-15px;left:50%;position:relative" src="<?php echo get_bloginfo('template_url'); ?>/img/blog.png" />
         </div>
       
-      	<!--BLOGS-->
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
-      	 	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
-           		<img class="img-circle img-resposive" src="<?php echo get_bloginfo('template_url'); ?>/img/user-blog.jpg" style="border:5px solid #333;width:100%" />
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9 blog-conteudo">
-        	    <h1>Título da postagem do Blog</h1>
-                <a href="#">Mente uma simulação de texto da indústria tipográfica e de impressos..</a>
-            </div>
-         </div>
-         
-         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
-      	 	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
-           		<img class="img-circle img-resposive" src="<?php echo get_bloginfo('template_url'); ?>/img/user-blog.jpg" style="border:5px solid #333;width:100%" />
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9 blog-conteudo">
-        	    <h1>Título da postagem do Blog</h1>
-                <a href="#">Mente uma simulação de texto da indústria tipográfica e de impressos..</a>
-            </div>
-         </div>
-         
-         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
-      	 	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
-           		<img class="img-circle img-resposive" src="<?php echo get_bloginfo('template_url'); ?>/img/user-blog.jpg" style="border:5px solid #333;width:100%" />
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9 blog-conteudo">
-        	    <h1>Título da postagem do Blog</h1>
-                <a href="#">Mente uma simulação de texto da indústria tipográfica e de impressos..</a>
-            </div>
-         </div>
-         
-         
-         <!--BLOGS-->
-         
-         
-         
+		<?php
+					$authors = get_users('role=author');
+						if(isset($authors) && !empty($authors)){
+							 foreach($authors as $author) {
+								  $posts = get_posts(array('author'=>$author->ID, 'posts_per_page'   => 1));
+								  if(isset($posts) && !empty($posts)) { 
+										foreach($posts as $post){
+											$p = get_post( $post->ID );
+											setup_postdata( $p );
+											?>
+										  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
+												<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+													<a id="bloguista" class="btn bloguista" href="#" data-content="<?php the_author_meta('description'); ?>" data-placement="top" data-title="<?php echo esc_html( $author->display_name )?>" data-trigger="hover">
+														<?php echo userphoto($author->ID) ; ?>
+													</a>
+												</div>
+												<div class="col-lg-8 col-md-8 col-sm-8 col-xs-9 blog-conteudo">
+													<h1><?php echo $post->post_title; ?></h1>
+													<a href="<?php the_permalink() ?>"><?php the_excerpt_im(100); ?></a>
+												</div>
+											</div>
+										<?php 
+										}
+								  }
+							 }							 
+						}
+					?>
         </div>    
 	</div>
 </div>
@@ -149,62 +128,28 @@
         <div class="col-lg-6 barra-right" style="background:url(<?php echo get_bloginfo('template_url'); ?>/img/bg-eventos-2.png) <?php if (isset($_GET['tema']) and $_GET['tema'] == 'azul'){ echo '#17066A;';} else { echo '#333';} ?>;background-size:cover;background-position:center center">
         
 			<!--###########################################################################################3333333-->
-				<div id="freewall" class="free-wall">
-				<div class="item size21 level1">
-					<div class="padding">
-						<h2>Window 8 metro style</h2>
-						<div>Freewall is a cross-browser and responsive jQuery plugin to help you create many types of grid layouts.</div>
-					</div>	
+				<div class="grid-evento">
+					<ul class="list-group">
+					<?php query_posts('posts_per_page=20'); if (have_posts()) : while (have_posts()) : the_post(); ?>
+							
+							<?php
+							if ( has_post_thumbnail() ) {
+								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+								$img = $image[0];
+							} else {
+								$img = pega_imagem_post();
+							} ?>
+								<li class="grid-item list-group-item">
+									<a href="#">
+										<img src="<?php echo $img ?>"/>
+										<div class="oculta">Lorem ipsum do texto do evento como data e hora e nome do evento</div>
+									</a>
+								</li>
+					  <?php endwhile; endif; ?>
+					</ul>
 				</div>
-				
-				<div class="size22 level1" data-nested=".size11" data-cellW=150 data-cellH=150 data-gutterX=10 >
-					<div class="item size11"><i class="icon-user icon-4x"></i></div>
-					
-					<div class="item size11"><i class="icon-coffee icon-4x"></i></div>
-					
-					<div class="size11" data-fixSize=0 data-nested=".size2-2" data-cellW=70 data-cellH=70 >
-						<div class="item size2-2"><i class="img-demo7"></i></div>
-						<div class="item size2-2"><i class="img-demo9"></i></div>
-						<div class="item size2-2"><i class="img-demo10"></i></div>
-						<div class="item size2-2"><i class="img-demo8"></i></div>
-						<div class="item size2-2"><i class="img-demo11"></i></div>
-						<div class="item size2-2"><i class="img-demo12"></i></div>
-					</div>
-					
-					<div class="item size11"><i class="icon-comments icon-4x"></i></div>
-				</div>
-
-				
-
-				<div class="item size21 level1 desktop-box">
-					<div class="wallpaper">
-						<div class="text-bottom">
-							<h1><a href="http://vnjs.net/www/project/freewall/">Free Wall</a></h1>
-						</div>
-					</div>
-				</div>	
-				
-			</div> <!-- freewall -->
 		  
 			<!--####################################################################################-->
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
         	
         </div>
     	<!--BARRA RIGHT-->
@@ -218,58 +163,71 @@
                 <img class="bolha-pedido" src="<?php echo get_bloginfo('template_url'); ?>/img/bolha-vazia.png" />
             </div>
             <div class="col-lg-10 pedido">Pedidos Musicais</div>
+            <ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#pedidos" aria-controls="pedidos" role="tab" data-toggle="tab">Pedidos</a></li>
+					<li role="presentation"><a href="#facaPedidos" aria-controls="facaPedidos" role="tab" data-toggle="tab">Faça seu pedido</a></li>
+			  </ul>
+				
+				
+				<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="pedidos">
+						<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
+																	background-position:center center;background-size:cover;">
+
+						</div>
+						<div class="col-lg-8" style="padding-right:0;">
+							<h5>Fulano de Tal e Tal</h5>
+							<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
+						</div>
+						
+						<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
+																	background-position:center center;background-size:cover;">
+
+						</div>
+						<div class="col-lg-8" style="padding-right:0;">
+							<h5>Fulano de Tal e Tal</h5>
+							<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
+						</div>
+						
+						<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
+																	background-position:center center;background-size:cover;">
+
+						</div>
+						<div class="col-lg-8" style="padding-right:0;">
+							<h5>Fulano de Tal e Tal</h5>
+							<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
+						</div>
+						
+						<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
+																	background-position:center center;background-size:cover;">
+
+						</div>
+						<div class="col-lg-8" style="padding-right:0;">
+							<h5>Fulano de Tal e Tal</h5>
+							<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
+						</div>
+						
+						<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
+																	background-position:center center;background-size:cover;">
+
+						</div>
+						<div class="col-lg-8" style="padding-right:0;">
+							<h5>Fulano de Tal e Tal</h5>
+							<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
+						</div>
+					
+					
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="facaPedidos">Inserir Formulário de Pedido Musical</div>
+			  </div>
+				
             
-            <div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
-            											background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8" style="padding-right:0;">
-            	<h5>Fulano de Tal e Tal</h5>
-            	<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
-            </div>
-            
-            <div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
-            											background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8" style="padding-right:0;">
-            	<h5>Fulano de Tal e Tal</h5>
-            	<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
-            </div>
-				
-				<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
-            											background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8" style="padding-right:0;">
-            	<h5>Fulano de Tal e Tal</h5>
-            	<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
-            </div>
-				
-				<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
-            											background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8" style="padding-right:0;">
-            	<h5>Fulano de Tal e Tal</h5>
-            	<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
-            </div>
-				
-				<div class="col-lg-4 foto-pedido-musical img-circle" style="background:url('http://vanimg.s3.amazonaws.com/13-jquery-sliders-7.jpg');
-            											background-position:center center;background-size:cover;">
-
-            </div>
-            <div class="col-lg-8" style="padding-right:0;">
-            	<h5>Fulano de Tal e Tal</h5>
-            	<p>Olá Querido Locutor Gostaria de Pedir a música de Tal cantor e oferecer pra toda a minha família. Obrigado.</p>
-            </div>
             
     	</div>
         
         <div class="col-lg-4">	  
         	<?php if (function_exists('enquetez_im')){
 							enquetez_im(2);
-enquetez_im(3);
 			} ?>
         </div>
         
@@ -302,4 +260,6 @@ enquetez_im(3);
     </div>
    </div> 
 </div>
+
+<div class="clearfix">&nbsp;</div>
 <?php get_footer(); ?>

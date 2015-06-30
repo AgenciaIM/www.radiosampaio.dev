@@ -246,7 +246,7 @@ function pega_imagem_post() {
 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
 		$first_img = $matches [1] [0];
 		if(empty($first_img)){ //Defines a default image
-			$first_img = "http://www.radiosampaio.com.br/wp-content/themes/radiosampaio/img/sem_foto.gif";
+			$first_img = "http://localhost/wordpress/wp-content/themes/RadioSampaio/img/sem_foto.gif";
 		}
 	return $first_img;
 }
@@ -373,6 +373,33 @@ function interactivemonkey_custom_dashboard_widgets() {
 function interactivemonkey_custom_dashboard_help() {
    tutorial_plugin();
 }
+
+///// Para usar chame the_excerpt_im(50);
+
+function the_excerpt_im($tamanho) {
+	$excerpt = get_the_excerpt();
+	$tamanho++;
+
+	if ( mb_strlen( $excerpt ) > $tamanho ) {
+		$subex = mb_substr( $excerpt, 0, $tamanho - 5 );
+		$exwords = explode( ' ', $subex );
+		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+		if ( $excut < 0 ) {
+			echo mb_substr( $subex, 0, $excut );
+		} else {
+			echo $subex;
+		}
+		echo '...';
+	} else {
+		echo $excerpt;
+	}
+}
+
+/*function custom_excerpt_length( $length ) {
+	return 5;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+*/
 
 
 function tutorial_plugin(){	// Seu usuário do YouTube
