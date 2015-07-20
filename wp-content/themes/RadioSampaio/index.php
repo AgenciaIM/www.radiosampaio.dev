@@ -1,25 +1,26 @@
 <?php get_header(); ?>
-
 <div class="container-fluid">
 	<div class="container" style="margin-top:50px;min-height:150px;height:auto;position:relative">
-    <div class="col-lg-10 col-lg-offset-1">
+    <div class="row">
     	<img class="bolha" src="<?php echo get_bloginfo('template_url'); ?>/img/bolha.png" />
-    	<div id="Slide" class="col-lg-6 no-padding">
+    	<div id="Slide" class="col-lg-5 no-padding">
            <!-- Swiper -->
-            <div class="swiper-container">
+            <div class="swiper-container" style="margin-top:30px">
                 <div class="swiper-wrapper">					  
 						  
 							<?php query_posts('posts_per_page=7'); if (have_posts()) : while (have_posts()) : the_post(); ?>
 							
 							<?php
 							if ( has_post_thumbnail() ) {
-								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail-slider' );
 								$img = $image[0];
 							} else {
 								$img = pega_imagem_post();
 							} ?>
 							
-							<div class="swiper-slide" style="background:url('<?php echo $img ?>');background-size:cover;background-position:center center;">
+                                                      <div class="swiper-slide img-responsive" style="background:url('<?php echo $img; ?>'); background-position:center top; background-size:cover;"> 
+                           
+
                     	<div class="swiper-detail">
                         	<h1><a href="<?php the_permalink() ?>"><?php title_limite(100); ?></a></h1>
                         	<p><a href="#<?php the_permalink(); ?>"><?php the_excerpt_im(47); ?></a></p>
@@ -46,22 +47,20 @@
 
             </div>-->
             
-				<?php query_posts('posts_per_page=3'); if (have_posts()) : while (have_posts()) : the_post(); ?>
-							
-							<?php
-							if ( has_post_thumbnail() ) {
-								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
-								$img = $image[0];
-							} else {
-								$img = pega_imagem_post();
-							} ?>
-							<div class="col-lg-3 miniatura-news" style="background:url('<?php echo $img ?>'); background-position:center center;background-size:cover;">
+				<?php query_posts('showposts=2'); if (have_posts()) : while (have_posts()) : the_post(); ?>          
+							<div class="col-lg-4">
+                                                        <?php
+                                                            if ( has_post_thumbnail() ) {
+                                                                the_post_thumbnail( 'thumbnail-jornalismo', array( 'class'  => 'img-responsive' ) );
+                                                            } 
+                                                        ?>
 
 							</div>
-							<div class="col-lg-8">
+							<div class="col-lg-8"> 
 								<h2><?php title_limite(30) ?></h2>
 								<a href="<?php the_permalink()?>" class="mini-a"><?php the_excerpt_im(65); ?></a>
 							</div>
+                                                       
 						  
 						   <div class="col-lg-12 espacamento">&nbsp;</div>
 							<?php endwhile; endif; ?>
@@ -77,82 +76,101 @@
 
 <div class="container-fluid blogs">
 	<div class="container">
-    <div class="col-lg-10 col-lg-offset-1">
+    <!-- blog -->
+    <div class="row">
 	    <div class="col-lg-12" style="margin-bottom:40px;">
     	    <img style="margin-left:-15px;left:50%;position:relative" src="<?php echo get_bloginfo('template_url'); ?>/img/blog.png" />
-        </div>
+            </div>
       
-		<?php
-					$authors = get_users('role=author');
-						if(isset($authors) && !empty($authors)){
-							 foreach($authors as $author) {
-								  $posts = get_posts(array('author'=>$author->ID, 'posts_per_page'   => 1));
-								  if(isset($posts) && !empty($posts)) { 
-										foreach($posts as $post){
-											$p = get_post( $post->ID );
-											setup_postdata( $p );
-											?>
-										  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
-												<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
-													<a id="bloguista" class="btn bloguista" href="#" data-content="<?php the_author_meta('description'); ?>" data-placement="top" data-title="<?php echo esc_html( $author->display_name )?>" data-trigger="hover">
-														<?php echo userphoto($author->ID) ; ?>
-													</a>
-												</div>
-												<div class="col-lg-8 col-md-8 col-sm-8 col-xs-9 blog-conteudo">
-													<h1><?php echo $post->post_title; ?></h1>
-													<a href="<?php the_permalink() ?>"><?php the_excerpt_im(100); ?></a>
-												</div>
-											</div>
-										<?php 
-										}
-								  }
-							 }							 
-						}
-					?>
+
+     <?php                                    
+         $authors = get_users('role=author');                           
+         if(isset($authors) && !empty($authors)){                          
+             foreach($authors as $author) {                        
+                 $posts = get_posts(array('author'=>$author->ID, 'posts_per_page'   => 1));
+                 if(isset($posts) && !empty($posts)) {                
+                      foreach($posts as $post){             
+                         $p = get_post( $post->ID );             
+                         setup_postdata( $p );                                 
+      ?> 
+		
+	        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 full-container">
+		    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">                                                                        
+		        <a id="bloguista" class="btn bloguista" href="#" data-content="<?php the_author_meta('description'); ?>" data-placement="top" data-title="<?php echo esc_html( $author->display_name )?>" data-trigger="hover">							            
+                              <?php echo get_avatar($author->ID, '100'); ?>
+			</a>
+		     </div>
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-9 blog-conteudo">
+			    <h1><?php echo $post->post_title; ?></h1>
+			    <a href="<?php the_permalink() ?>"><?php the_excerpt_im(100); ?></a>
+			    </div>
+			</div>
+	  <?php 
+			}
+		      }
+		   }							 
+		}
+	    ?>
         </div>    
 	</div>
 </div>
 
+<!--  BARRA DO MEIO -->
 <div class="container-fluid full-container barra-meio">
-		<!--BARRA LETT-->
-        
+   
+        <!--BARRA LETT-->
     	<div class="col-lg-6" style="padding:20px;">
-			<div class="col-lg-12 evento-principal full-container">        	
+               
+		<div class="col-lg-12 evento-principal full-container"> 
+                <div class="col-md-9 pull-right">         	
                 <img class="img-responsive pull-right" src="<?php echo get_bloginfo('template_url'); ?>/img/evento-p.jpg" />
-                <a href="#" class="plus"><i class="glyphicon glyphicon-search">&nbsp;</i></a>            
-            </div>    
+                <a href="#" class="plus"><i class="glyphicon glyphicon-search">&nbsp;</i></a> 
+               <div class="funto-texto" style="color:#fff"> 
+                   <p class="color:#fff;">lorem ipsum loerem impsiy uy u yuyuuu</p>
+               </div>  
+               </div>        
+            </div> 
+               
         </div>
         <!--BARRA LEFT-->
-        
+      
         <!--BARRA RIGHT-->
-        <div class="col-lg-6 barra-right" style="background:url(<?php echo get_bloginfo('template_url'); ?>/img/bg-eventos-2.png) <?php if (isset($_GET['tema']) and $_GET['tema'] == 'azul'){ echo '#17066A;';} else { echo '#333';} ?>;background-size:cover;background-position:center center">
         
-			<!--###########################################################################################3333333-->
-				<div class="grid-evento">
-					<ul class="list-group">
-					<?php query_posts('posts_per_page=20'); if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <div class="col-lg-6 barra-right" style="background:url(<?php echo get_bloginfo('template_url'); ?>/img/bg-eventos-3.png) <?php if (isset($_GET['tema']) and $_GET['tema'] == 'azul'){ echo '#17066A;';} else { echo '#333';} ?>;background-size:cover;background-position:center center">
+        
+			<!-- ###########################################################################################3333333 -->
+				<div class="grid-evento col-md-8" style="padding-top:20px">
+                                
+					
+					<?php query_posts('posts_per_page=4'); if (have_posts()) : while (have_posts()) : the_post(); ?>
 							
 							<?php
 							if ( has_post_thumbnail() ) {
-								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail-eventos' );
 								$img = $image[0];
 							} else {
 								$img = pega_imagem_post();
 							} ?>
-								<li class="grid-item list-group-item">
-									<a href="#">
-										<img src="<?php echo $img ?>"/>
-										<div class="oculta">Lorem ipsum do texto do evento como data e hora e nome do evento</div>
+								<div class="col-md-6">
+                                                                  <a href="#" class="">
+										<img class="img-responsive" src="<?php echo $img ?>" alt="Generic placeholder thumbnail" />
+                                                         <div class="funto-texto" style="color:#fff">        
+                                                         <p class="color:#fff;">lorem ipsum loerem impsiy uy u yuyuuu</p>
+                                                         </div>                  
+                                        
+									
 									</a>
-								</li>
+                                                                </div>
+                                                             
 					  <?php endwhile; endif; ?>
-					</ul>
+				
 				</div>
-		  
-			<!--####################################################################################-->
+			<!-- #################################################################################### -->
         	
         </div>
+
     	<!--BARRA RIGHT-->
+        
 </div>
 
 <div class="container-fluid barra-pedidos">

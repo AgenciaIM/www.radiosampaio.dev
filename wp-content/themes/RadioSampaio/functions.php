@@ -14,12 +14,13 @@ function my_admin_head() {
 add_action('admin_head', 'my_admin_head');
 
 
-/* REMOVER VERSÃO DO RODAPÉ */
+/* REMOVER VERSÃO DO RODAPÉ 
 function change_footer_version() {
   return 'Versão 1.0.0';
 }
 add_filter( 'update_footer', 'change_footer_version', 9999 );
 
+*/
 
 /* MUDAR O TEXTO DO RODAPÉ DO PAINEL DE ADMIN */
 function remove_footer_admin () {
@@ -29,7 +30,7 @@ function remove_footer_admin () {
 add_filter('admin_footer_text', 'remove_footer_admin');
 
 
-/* REMOVER ITEMS DA BARRA DE ADMIN */
+/* REMOVER ITEMS DA BARRA DE ADMIN 
 
 function wps_admin_bar() {
     global $wp_admin_bar;
@@ -42,6 +43,8 @@ function wps_admin_bar() {
 }
 
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
+*/
+
 
 /* REMOVENDO MENSAGEM DE ATUALIZAÇÃO */
 add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
@@ -65,7 +68,11 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'thumbnail', 150, 150, true ); //(cropped)
+        add_image_size( 'thumbnail-slider', 488, 280, true );
+        add_image_size( 'thumbnail-eventos', 200, 123, true );
+        add_image_size( 'thumbnail-jornalismo', 150, 115, true );
 }
+
 
 //////////////////////////////////
 /// Definir a qualidade de imagens JPG
@@ -73,7 +80,7 @@ if ( function_exists( 'add_image_size' ) ) {
 
 add_filter( 'jpeg_quality', 'wp_jpeg_quality' ); 
 function wp_jpeg_quality() {
-         return 80;
+         return 90;
 }
 
 ////////////////////////////////

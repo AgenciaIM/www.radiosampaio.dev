@@ -70,12 +70,12 @@ body{
 }
 .bolha{
 	position:absolute;
-	left:0;
+	left:-14px;
 	top:-35px;
 	z-index:9999;
 }
 #Slide{
-	height:250px;
+	height:270px;
 }
 .swiper-container {
 	width: 100%;
@@ -132,7 +132,7 @@ body{
 
 .bolha-jornalismo{
 	position:absolute;
-	left:0;
+	left:15%;
 	top:-25px;
 	z-index:9999;
 }
@@ -146,7 +146,7 @@ body{
 	font-size:16px;
 	text-align:center;
 	font-weight:700;
-	border-radius:20px;
+	//border-radius:20px;
 }
 .news .miniatura-news, .sidebar-jornalismo .miniatura-news{
 	width:80px;
@@ -217,7 +217,7 @@ body{
 	background:#ffde00;
 	min-height:354px;
 	height:auto;
-	max-height:800px;
+	max-height:400px;
 	position:relative;
 	height:auto;
 	margin:30px 0;
@@ -583,4 +583,17 @@ body{
 
 @media only screen and (max-width: 479px) {
 	
+}
+
+.avatar-100{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%; border:5px solid #000;}
+
+.funto-texto {
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+    bottom: 0;
+    padding:3%;
+    position: absolute;
+    text-align: left;
+    width: 85%;
+}
+
 }
