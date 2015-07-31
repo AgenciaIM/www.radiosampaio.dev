@@ -48,9 +48,27 @@ body{
 	background:none;
 	padding:0px !important;
 }
+.enquete {
+background:#ffde00;
+}
+.enquete ul {
+padding:5px;
+}
+.enquete li {list-style-type:none}
 .menu nav{
 	background:none;
 	margin-top:4px !important;
+}
+.texto-vertical {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    writing-mode: lr-tb;
+    position: absolute;
+    right: -55px;
+    top: 40%;
+    color:#999;
+    z-index: 9999;
 }
 .navbar-default{
 	border:0px !important;
@@ -75,7 +93,7 @@ body{
 	z-index:9999;
 }
 #Slide{
-	height:270px;
+	height:343px;
 }
 .swiper-container {
 	width: 100%;
@@ -262,7 +280,7 @@ body{
 	text-decoration:none;
 	position:absolute;
 	top:-80px;
-	right:-80px;
+	right:0;
 	
 	transform:rotate(45deg);
 }
@@ -297,11 +315,30 @@ body{
 	font-size:16px;
 	text-align:center;
 	font-weight:700;
-	border-radius:20px;
+	
+}
+.pedido-cinza{
+	background:#4b4a4a;
+	position:relative;
+	height:30px;
+	padding-top:4px;
+	margin-bottom:20px;
+	left:0px;	
+	font-size:16px;
+	text-align:center;
+	font-weight:700;
+        color:#fff;
+	
 }
 .bolha-pedido{
 	position:absolute;
 	left:0;
+	top:-10px;
+	z-index:99999;
+}
+.bolha-pedido-cinza{
+	position:absolute;
+	left:-5px;
 	top:-10px;
 	z-index:99999;
 }
@@ -322,10 +359,13 @@ body{
 }
 .barra-pedidos h5{
 	font-weight:700;
+        margin-top:0;
+        margin-right: 4%;
 }
 .barra-pedidos p{
 	font-size:11px;
 	text-align:justify;
+        margin-right: 4%;
 }
 
 
@@ -469,98 +509,218 @@ body{
 
 /* COMENTARIOS  */
 
-#comments h3 {font: bold 24px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393;padding-bottom:5px;}
-#comments hr {margin: 0 0 16px 0}
-.commentlist li {list-style-type: none; margin-bottom:15px; padding:8px; background:#f5f5f5; width:550px; max-width:550px} 
-.comment-body {position: relative;}
-.comment-body .commentmetadata a {position: absolute; top:0; right:0; font: 12px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393; text-decoration:none; }
-#comments .commentlist li .comment-body p {font: 12px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#000; margin:5px 0 0 70px;}
-.comment-awaiting-moderation {margin-left:70px; color:#fe1010}
-.comment-author {position: relative}
-.comment-author img {margin:0 5px 5px 0}
-.fn {position: absolute; top:0;} 
-.fn a {font: bold 13px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#000; text-decoration:none;} 
-.fn a:hover {color:#000; text-decoration:underline;}
-.says {position: absolute; top:25px; font: 13px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#999; }
-.reply {text-align:right;}
-.reply a {font: 13px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#999; }
-.comment-edit-link {margin-top:30px}
-
-.coment-textarea{
-	width:450px;
-	max-width:400px;
-	min-width:350px;
-	height:200px;
-	max-height:200px;
-	min-height:150px;
-	padding: 25px;
-	font-size:14px;
-	color:#333;
-	background:#ebebeb;
-	border:1px solid #ccc;
-	border-radius:4px;
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	-ms-border-radius:4px;
-	-o-border-radius:4px;	
+/**
+ * A área de comentários do tema "TwentyFourteen"
+ * com algumas edições necessárias.
+ */
+.comments-area {
+	margin: 30px auto;
+	max-width: 100%;
+	font-size: 12px;
 }
-.coment-tit{
-	font-size:15px;
-	color:#666;
-	width:100%;
-	padding-left:10px;
-	margin-bottom:0px;
-	margin-top:15px;
+ 
+.comments-area textarea {
+	width: 100%;
 }
-.coment-input{
-	width:280px;
-	max-width:280px;
-	padding: 10px 25px;
-	font-size:14px;
-	color:#333;
-	background:#efefef;
-	border:1px solid #ccc;
-	border-radius:20px;
-	-webkit-border-radius:20px;
-	-moz-border-radius:20px;
-	-ms-border-radius:20px;
-	-o-border-radius:20px;	
-}
-
-
-
-/* RESPOSTAS */
-#respond {margin-top:10px}
-#respond form label {
-	width:450px; 
-	display:table; 
-	margin: 15px 0 0 0;
-	padding:0;
-	font-weight:normal}
-#respond form input{
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	-ms-border-radius:4px;
-	-o-border-radius:4px;
-	border-radius:4px;
-	background:#ebebeb;
-	border:0px;
-	padding:12px;
-	color:#333;
-}
-#respond form textarea {
-	width: 400px;
-	background:#ebebeb; 
-	height: 200px; 
-	max-height:200px; 
+ 
+.comment-body  {
+	border: 1px solid #ddd;
+	background: #f9f9f9;
 	padding: 15px;
-	}
-
-#respond form .commentsubmit {width:100px; height:30px; color: #000; margin:50px 0}
-#respond a {font: 14px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393; text-decoration:none;} 
-#respond form a {font: 14px "Ubuntu Condensed", "Trebuchet MS", Arial, Helvetica, sans-serif; color:#3f6393; text-decoration:none;}
-.children {margin:20px 0 15px 60px;width:470px;max-width:470px;}
-.children li {margin-bottom:15px; padding:8px; border:1px solid #ccc; background:#efefef;max-width:470px;}
+	margin: 15px 0;
+}
+ 
+.comment-reply-title,
+.comments-title {
+	font: 700 16px/1.5 sans-serif;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+ 
+.comment-list {
+	list-style: none;
+	margin: 0 0 30px 0;
+}
+ 
+.comment-author {
+	font-size: 14px;
+	line-height: 1.7142857142;
+}
+ 
+.comment-list .reply,
+.comment-metadata {
+	font-size: 10px;
+	text-transform: uppercase;
+}
+ 
+.comment-reply-link {
+	padding: 5px 10px;
+	color: #fff;
+	display: inline-block;
+	background: #1e88e5;
+}
+ 
+.comment-author .fn {
+	font-weight: 900;
+}
+ 
+.comment-list article,
+.comment-list .pingback,
+.comment-list .trackback {
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 24px;
+	padding-top: 24px;
+}
+ 
+.comment-list > li:first-child > article,
+.comment-list > .pingback:first-child,
+.comment-list > .trackback:first-child {
+	border-top: 0;
+}
+ 
+.comment-author {
+	position: relative;
+}
+ 
+.comment-author .avatar {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	height: 18px;
+	padding: 2px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 18px;
+}
+ 
+.says {
+	display: none;
+}
+ 
+.comment-author,
+.comment-awaiting-moderation,
+.comment-content,
+.comment-metadata {
+	padding-left: 30px;
+}
+ 
+.comment-edit-link {
+	margin-left: 10px;
+}
+ 
+.comment-content {
+	-webkit-hyphens: auto;
+	-moz-hyphens:    auto;
+	-ms-hyphens:     auto;
+	hyphens:         auto;
+	word-wrap: break-word;
+}
+ 
+.comment-content ul,
+.comment-content ol {
+	margin: 0 0 24px 22px;
+}
+ 
+.comment-content li > ul,
+.comment-content li > ol {
+	margin-bottom: 0;
+}
+ 
+.comment-content > :last-child {
+	margin-bottom: 0;
+}
+ 
+.comment-list .children {
+	list-style: none;
+	margin-left: 15px;
+}
+ 
+.comment-respond {
+	margin-bottom: 24px;
+	padding: 0;
+}
+ 
+.comment .comment-respond {
+	margin-top: 24px;
+}
+ 
+.comment-respond h3 {
+	margin-top: 0;
+	margin-bottom: 24px;
+}
+ 
+.comment-notes,
+.comment-awaiting-moderation,
+.logged-in-as,
+.no-comments,
+.form-allowed-tags,
+.form-allowed-tags code {
+	color: #767676;
+}
+ 
+.comment-notes,
+.comment-awaiting-moderation,
+.logged-in-as {
+	font-size: 14px;
+	line-height: 1.7142857142;
+}
+ 
+.no-comments {
+	font-size: 16px;
+	font-weight: 900;
+	line-height: 1.5;
+	margin-top: 24px;
+	text-transform: uppercase;
+}
+ 
+.comment-form label {
+	display: block;
+}
+ 
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"] {
+	width: 100%;
+}
+ 
+.form-allowed-tags,
+.form-allowed-tags code {
+	font-size: 12px;
+	line-height: 1.5;
+}
+ 
+.required {
+	color: #c0392b;
+}
+ 
+.comment-reply-title small a {
+	color: #2b2b2b;
+	float: none;
+	overflow: hidden;
+	font-size: 12px;
+	display: block;
+	clear: both;
+}
+ 
+.comment-navigation {
+	font-size: 12px;
+	line-height: 2;
+	margin-bottom: 48px;
+	text-transform: uppercase;
+}
+ 
+.comment-navigation .nav-next,
+.comment-navigation .nav-previous {
+	display: inline-block;
+}
+ 
+.comment-navigation .nav-previous a {
+	margin-right: 10px;
+}
+ 
+#comment-nav-above {
+	margin: 15px 0;
+}
 
 
 
@@ -587,13 +747,120 @@ body{
 
 .avatar-100{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%; border:5px solid #000;}
 
+.wp-user-avatar-65 {
+-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
+    border: 3px solid #ffde00;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    height: auto;
+    width: 100%;
+}
+
 .funto-texto {
     background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
     bottom: 0;
     padding:3%;
     position: absolute;
     text-align: left;
-    width: 85%;
+    width: 84%;
+}
+.funto-texto2 {
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+    bottom: 16%;
+    padding:1% 2% 0 2%;
+    position: absolute;
+    text-align: left;
+    width: 84%;
 }
 
+.thumbnail-eventos {
+//background: #ffde00 none repeat scroll 0 0;
+   // border: 1px solid #ffde00;
+    border-radius: 4px;
+    display: block;
+    line-height: 1.42857;
+    margin-bottom: 20px;
+    padding: 4px;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+#mediaplayer_wrapper{
+    margin:2px 0 3px 0;
+  }
+
+
+/* Removes the default 20px margin and creates some padding space for the indicators and controls */
+.carousel {
+    margin-bottom: 0;
+	padding: 0 40px 30px 40px;
+}
+/* Reposition the controls slightly */
+.carousel-control {
+	left: -12px;
+}
+.carousel-control.right {
+	right: -12px;
+}
+/* Changes the position of the indicators */
+.carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: 0px;
+	margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.carousel-indicators li {
+	background: #c0c0c0;
+}
+.carousel-indicators .active {
+background: #333333;
+}
+
+
+
+
+@media (min-width: 768px) {
+.carousel-blog {
+    padding-top:8%;
+    width:5%;
+}    
+}
+
+@media (min-width: 992px) {
+    .carousel-blog {
+    padding-top:9%;
+    width:5%;
+}
+}
+
+@media (min-width: 1200px) { 
+    .carousel-blog {
+    padding-top:10%;
+    width:5%;
+}
+}
+
+.carousel-blog.right {
+    right: -12px;
+}
+
+.carousel-blog {
+    padding-top: 10%;
+    width: 5%;
+}
+
+.carousel-blog {
+    left: -12px;
+}
+
+.carousel-blog {
+    bottom: 0;
+    color: #fff;
+    font-size: 20px;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    top: 0;
+    width: 15%;
 }

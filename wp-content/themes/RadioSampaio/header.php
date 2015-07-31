@@ -48,15 +48,56 @@
 <!-- BARRA TOPO -->
 <div class="container-fluid">
    <div class="container barra-topo"> 
-	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<?php 
+	<div class="col-lg-12 col-md-12">
+        <div class="col-lg-1"><h4 style="color:#DA251C; line-height: 5px;">Ao vivo </h4> </div>
+       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">  
+        <!-- player topo -->
+            <!-- <script type='text/javascript' src='http://www.radiosampaio.dev/wp-content/themes/RadioSampaio/radio/jwplayer.js'></script> -->
+                        <script type='text/javascript' src='http://900464851.r.cdn77.net/jwplayer/510/jwplayer.js'></script>
+
+                        <div id='mediaplayer'></div>
+
+ <script type="text/javascript">
+  jwplayer('mediaplayer').setup({
+    'id': 'playerID',
+    'width': '250',
+    'height': '24',
+    'rtmp.tunneling': 'false',
+ 'plugins': {
+       'viral-2': {
+           'onpause': "false",
+           'allowmenu': "false",
+           'functions': "link"
+       }
+    },
+    'autostart': 'true',
+    'controlbar': 'bottom',
+     'provider': 'rtmp',
+    'streamer': 'rtmp://wz6.dnip.com.br:1935/sampaiofmhd',
+    'file': 'sampaiofmhd.stream',
+    'modes': [
+        {type: 'flash', src: 'http://900464851.r.cdn77.net/jwplayer/510/player.swf'},
+    {type: 'html5', config:
+        {
+        'file': "http://wz6.dnip.com.br/sampaiofmhd/sampaiofmhd.stream/playlist.m3u8",
+        provider: 'video'
+        }
+    }
+    ]
+  });
+</script>
+       <!-- /fim topo -->
+        </div>
+        <!-- dia e mes -->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 pull-right">
+
+           <?php 
        		setlocale( LC_ALL, 'pt_BR', 'pt_BR.iso-8859-1', 'pt_BR.iso-8859-1', 'portuguese' ); 
        		date_default_timezone_set( 'America/Sao_Paulo' );
        		echo ucfirst(strftime("%A, %d de %B de %Y", strtotime('today') )); 
 			?>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">Player Rádio</div>
+
+       </div> <!-- /dia e mes -->
 	</div>	  
    </div>
 </div>
@@ -65,26 +106,29 @@
 <!-- BARRA HEADER -->
 <div class="container-fluid full-container" style="background:<?php if (isset($_GET['tema']) and $_GET['tema'] == 'azul'){ echo '#17066A;';} else { echo '#333';} ?>">
    <div class="container barra-header">
-	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 ">
+	<div class="col-lg-12 col-md-12">
    		<!-- SEARCH-->
-		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<img class="img-responsive" src="<?php echo get_bloginfo('template_url'); ?>/img/logo.png"/>
+	    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- LOGO -->
+        	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <div class="row">
+		        <img class="img-responsive" src="<?php echo get_bloginfo('template_url'); ?>/img/logo.png"/>
+                    </div>
+             </div>
+                <!-- TITULO -->
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+            	  <h1 style="font-size:68px">Rádio Sampaio</h1> 
+                </div>
+             <!-- LOGO 2 -->
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <div class="row">
+                 <img class="img-responsive center-block" src="<?php echo get_bloginfo('template_url'); ?>/img/radio-am.png"/>        
+                 <a class="center-block text-center" style="color:#FFFFFF !important; font-size:12px;" href="http://www.dnip.com.br/link/sampaioam.wmx" >[Clique e escute]</a>      
+              </div>   
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            	<h1>Rádio Sampaio</h1>
-            </div>
-        </div>
-        <!-- LOGO -->
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 player">
-        	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            dasd
-            </div>
-            
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 pull-right">
-            dasda
-            </div>
-        </div>
+
+            </div> <!-- / fim da linha das logos e player -->
+          
         
         <!-- MENU NAVEGACAO-->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menu">

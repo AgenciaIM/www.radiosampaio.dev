@@ -68,5 +68,13 @@
 			});
 
 		</script>
+
+  <script type="text/javascript"> 
+     $(document).ready(function() {
+     $('#myCarousel').carousel({
+	    interval: 10000
+	})
+      });
+  </script>
 </body>
 </html>

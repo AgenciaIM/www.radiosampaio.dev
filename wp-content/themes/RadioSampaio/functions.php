@@ -1,4 +1,5 @@
 <?php
+
 /* adicionar titulo de tags */
 add_theme_support( 'title-tag' );
 
@@ -12,6 +13,14 @@ function my_admin_head() {
 }
 
 add_action('admin_head', 'my_admin_head');
+
+
+/* REMOVER INPUT DE SITE FORMULARIO */
+add_filter('comment_form_default_fields', 'remove_url');
+function remove_url($val) {
+    $val['url'] = '';
+    return $val;    
+}
 
 
 /* REMOVER VERSÃO DO RODAPÉ 
@@ -68,8 +77,9 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'thumbnail', 150, 150, true ); //(cropped)
-        add_image_size( 'thumbnail-slider', 488, 280, true );
-        add_image_size( 'thumbnail-eventos', 200, 123, true );
+        add_image_size( 'thumbnail-slider', 488, 343, true );
+        add_image_size( 'thumbnail-event-destaque', 500, 322, true );
+        add_image_size( 'thumbnail-eventos', 254, 148, true );
         add_image_size( 'thumbnail-jornalismo', 150, 115, true );
 }
 
@@ -457,4 +467,35 @@ function tutorial_plugin(){	// Seu usuário do YouTube
                     <iframe width="340" height="260" src="//www.youtube.com/embed/<?php echo $video['id'] ?>" frameborder="0" allowfullscreen></iframe>                    
 						<!--<img src="<?php //echo $video["thumbnail"] ?>" alt="<?php //echo $video["titulo"] ?>" width="150" /></a>-->					</li>
 									<?php } 	echo '<div style="clear:both"></div></ul>';}
+
+
+//////////////////////////////////////
+// LISTA DE COMENTARIO CUSTOMIZADO //
+/////////////////////////////////////
+
+function listarpedidos( $comment, $args, $depth )
+{
+   ?>
+        <!-- bloco -->
+     <div class="row" style="padding:20px 0 10px 0;">
+        <div class="col-lg-3">
+            <?php echo get_avatar( $comment, 65 ); ?>
+        </div>
+	<div class="col-lg-9 no-padding">
+            <h5><?php printf( '%s', get_comment_author_link() ); ?></h5>
+            <p><?php echo strip_tags( get_comment_text() ); ?></p>
+        </div>
+    </div>
+    <?php
+}
 ?>
+
+
+							
+						
+						
+						
+
+						
+
+
